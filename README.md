@@ -39,5 +39,5 @@ Project made with Symfony using GraphQL to get data from yahoo weather api.
  }
 `
 
-!["GraphiQL"](./graphiql.png?raw=true "GraphiQL")
+!["GraphiQL"](https://github.com/lmomar/sf4-graphql/blob/master/graphiql.PNG?raw=true "GraphiQL")
 
