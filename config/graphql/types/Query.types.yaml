@@ -1,0 +1,11 @@
+Query:
+    type: object
+    config:
+        fields:
+            Observation:
+                type: 'Observation'
+                args:
+                    city:
+                        description: "Resolves observations by its city"
+                        type: 'String!'
+                resolve: "@=resolver('Observation',[args['city']])"
