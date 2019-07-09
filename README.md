@@ -18,6 +18,17 @@ Project made with Symfony using GraphQL to get data from yahoo weather api.
 
 `php bin/console doctrine:migration:migrate`
 
+
+**Demo:**
+to run the app use this commande :
+
+`php bin/console server:run`
+
+and then lunch this in your browser:
+
+`http://127.0.0.1:8000/graphiql`
+
+
 **Query used in Graphiql:**
 
 `{
@@ -48,4 +59,3 @@ Project made with Symfony using GraphQL to get data from yahoo weather api.
 `
 
 !["GraphiQL"](https://github.com/lmomar/sf4-graphql/blob/master/graphiql.PNG?raw=true "GraphiQL")
-
