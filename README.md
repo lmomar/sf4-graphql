@@ -24,7 +24,7 @@ to run the app use this commande :
 
 `php bin/console server:run`
 
-and then lunch this in your browser:
+and then open this url in your browser:
 
 `http://127.0.0.1:8000/graphiql`
 
