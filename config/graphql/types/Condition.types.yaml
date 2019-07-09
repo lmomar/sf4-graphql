@@ -1,0 +1,10 @@
+Condition:
+        type: object
+        config:
+            fields:
+                text:
+                    type: 'String'
+                code:
+                    type: 'Int'
+                temperature:
+                    type: 'Int'

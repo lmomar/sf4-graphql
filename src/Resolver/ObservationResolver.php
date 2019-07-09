@@ -5,6 +5,7 @@ namespace App\Resolver;
 
 
 use App\Repository\ObservationRepository;
+use App\Services\RestApi;
 use App\Services\Weather;
 use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
 use Overblog\GraphQLBundle\Definition\Resolver\ResolverInterface;
@@ -22,11 +23,7 @@ class ObservationResolver implements ResolverInterface, AliasedInterface
     }
 
     public function resolve(String $city){
-        $this->weather->getData($city);
-        return $this->observationRepository->findOneBy(
-            ['city' => $city],
-            ['created_at' => 'desc']
-        );
+        return $this->weather->getData($city);
     }
 
 

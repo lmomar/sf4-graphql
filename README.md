@@ -22,19 +22,27 @@ Project made with Symfony using GraphQL to get data from yahoo weather api.
 
 `{
    Observation(city: "Casablanca") {
-     chill: wind_chill
-     direction: wind_direction
-     speed: wind_speed
-     humidity: atm_humidity
-     visibility: atm_visibility
-     pressure: atm_pressure
-     rising: atm_rising
-     sunrise: ast_sunrise
-     sunset: atm_sunset
-     text: condition_text
-     code: condition_code
-     temperature: condition_temperature
-     city
+     city,
+ 		wind{
+       chill,
+       direction,
+       speed
+     },
+     atmosphere{
+     	humidity,
+       visibility,
+       pressure,
+       rising
+     },
+     astronomy{
+     	sunrise,
+       sunset
+     },
+     condition{
+       text,
+       code,
+       temperature
+     }
    }
  }
 `

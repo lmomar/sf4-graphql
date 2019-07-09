@@ -1,0 +1,12 @@
+Atmosphere:
+        type: object
+        config:
+            fields:
+                humidity:
+                    type: 'Int'
+                visibility:
+                    type: 'Float'
+                pressure:
+                    type: 'Float'
+                rising:
+                    type: 'Int'

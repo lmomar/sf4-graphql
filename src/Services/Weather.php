@@ -7,7 +7,7 @@ namespace App\Services;
 use App\Entity\Observation;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\ORMException;
-use Psr\Log\LoggerInterface;
+use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class Weather
@@ -15,27 +15,30 @@ class Weather
 
     private $httpClient;
     private $manager;
+    /**
+     * @var SerializerInterface
+     */
+    private $serializer;
 
-    public function __construct(HttpClientInterface $client, EntityManagerInterface $manager)
+    public function __construct(HttpClientInterface $client, EntityManagerInterface $manager, SerializerInterface $serializer)
     {
         $this->httpClient = $client;
         $this->manager = $manager;
+        $this->serializer = $serializer;
     }
 
-    public function getData(String $city):void
+    public function getData(String $city)
     {
         $http = $this->httpClient->request('GET',
             'https://weather-ydn-yql.media.yahoo.com/forecastrss?location=' . trim($city) . ',ma&format=json', [
                 'headers' => $this->getHeader($city)
             ]);
-        if($http->getStatusCode() !== 200){
-            /*dump($http->getContent());
-            die('err');*/
+        if ($http->getStatusCode() !== 200) {
             die('err');
-            //return false;
         }
-        //dump(json_decode($http->getContent(),true));die('testt');
-        $this->saveData(json_decode($http->getContent(),true));
+        $data = json_decode($http->getContent(), true);
+        return array_merge($data['current_observation'],array('city' => $data['location']['city'] ));
+
 
     }
 
@@ -85,11 +88,11 @@ class Weather
         return $r;
     }
 
-    private function saveData($data = array()):void
+    private function saveData($data = array()): void
     {
         $observation = new Observation();
         try {
-           // dump($data);
+            // dump($data);
             /**
              * setting wind data
              */

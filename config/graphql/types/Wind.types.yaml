@@ -1,0 +1,10 @@
+Wind:
+        type: object
+        config:
+            fields:
+                chill:
+                    type: 'Int'
+                direction:
+                    type: 'Int'
+                speed:
+                    type: 'Float'

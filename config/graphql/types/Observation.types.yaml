@@ -2,29 +2,13 @@ Observation:
         type: object
         config:
             fields:
-                wind_chill:
-                    type: 'Int'
-                wind_direction:
-                    type: 'Int'
-                wind_speed:
-                    type: 'Float'
-                atm_humidity:
-                    type: 'Int'
-                atm_visibility:
-                    type: 'Float'
-                atm_pressure:
-                    type: 'Float'
-                atm_rising:
-                    type: 'Int'
-                ast_sunrise:
-                    type: 'String'
-                atm_sunset:
-                    type: 'String'
-                condition_text:
-                    type: 'String'
-                condition_code:
-                    type: 'Int'
-                condition_temperature:
-                    type: 'Int'
                 city:
                     type: 'String'
+                wind:
+                    type: 'Wind'
+                atmosphere:
+                    type: 'Atmosphere'
+                astronomy:
+                    type: 'Astronomy'
+                condition:
+                    type: 'Condition'

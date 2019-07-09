@@ -1,0 +1,8 @@
+Astronomy:
+        type: object
+        config:
+            fields:
+                sunrise:
+                    type: 'String'
+                sunset:
+                    type: 'String'
